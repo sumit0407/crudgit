@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud Demo</title>
+</head>
+<body>
+    <marquee>CRUD OPERATION </marquee>
+    
+    <form style="text-align: center;"  method="POST">
+        <table align="center" cellspacing="10" cellpadding="0" border="5">
+     <tr>            
+            <td>Firstname</td>
+            <td>Lastname</td>
+            <td>Email</td>
+            <td>Password</td>
+            <td>Contact</td>
+                
+        </tr>
+        <tr>
+            {% for i in data %}
+            <td>{{i.Firstname}}</td>
+        
+            <td>{{i.Lastname}}</td>
+            <td>{{i.Email}}</td>
+            <td>{{i.Password}}</td>
+            <td>{{i.Contact}}</td>
+            <td><a href="{% url 'updatedata' pk=i.id %}">Update</a></td>
+            <td><a href="{% url 'deletedata' pk=i.id %}">DELETE</a></td>
+            
+        </tr>
+        {% endfor %}
+        </table>
+    </form>
+    
+</body>
+</html>
